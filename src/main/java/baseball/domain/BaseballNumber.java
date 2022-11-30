@@ -11,7 +11,6 @@ public class BaseballNumber {
     }
 
     public int countDifferentDigit(BaseballNumber other) {
-        System.out.println(other.baseballNumber);
         return (int) Stream.iterate(0, i -> i + 1)
                 .limit(baseballNumber.size())
                 .filter(i -> other.baseballNumber.contains(baseballNumber.get(i)))

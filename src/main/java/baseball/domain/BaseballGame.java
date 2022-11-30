@@ -26,7 +26,7 @@ public class BaseballGame {
     private List<Integer> makeIntegerToList(int target) {
         List<Integer> result = new ArrayList<>();
         while (target > 0) {
-            result.add(target / 10);
+            result.add(target % 10);
             target /= 10;
         }
         Collections.reverse(result);
