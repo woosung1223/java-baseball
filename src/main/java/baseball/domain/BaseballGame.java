@@ -19,6 +19,7 @@ public class BaseballGame {
         AnswerComparator answerComparator = new AnswerComparator();
 
         List<Integer> gameResult = answerComparator.getScore(userNumber, answer);
+        // TODO: DTO에 게임 종료 플래그를 삽입한다.
         return gameResult;
     }
 
