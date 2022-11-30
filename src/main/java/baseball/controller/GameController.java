@@ -1,6 +1,7 @@
 package baseball.controller;
 
 import baseball.domain.BaseballGame;
+import baseball.domain.GameControl;
 import baseball.domain.GameResultDTO;
 import baseball.view.InputView;
 import baseball.view.OutputView;
@@ -18,7 +19,7 @@ public class GameController {
     }
 
     private void startGameLoop() {
-        int userControl;
+        GameControl userControl;
         do {
             baseballGame.initAnswer();
             doOneGame();
@@ -35,7 +36,7 @@ public class GameController {
         } while (!gameResult.isGameOver());
     }
 
-    private boolean userNeedContinue(int userControl) {
-        return userControl == 1;
+    private boolean userNeedContinue(GameControl userControl) {
+        return userControl.isContinue();
     }
 }
