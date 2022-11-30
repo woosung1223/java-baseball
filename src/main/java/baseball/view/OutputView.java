@@ -1,5 +1,7 @@
 package baseball.view;
 
+import baseball.domain.GameResultDTO;
+
 import java.util.List;
 
 public class OutputView {
@@ -9,13 +11,13 @@ public class OutputView {
     private final String DELIMITER = " ";
     private final String EMPTY_STRING = "";
 
-    public void printResult(List<Integer> gameResult) {
+    public void printResult(GameResultDTO gameResult) {
         printResultMessage(gameResult);
     }
 
-    private void printResultMessage(List<Integer> gameResult) {
-        String ballMessage = makeBallCountIfExists(gameResult.get(0));
-        String strikeMessage = makeStrikeCountIfExists(gameResult.get(1));
+    private void printResultMessage(GameResultDTO gameResult) {
+        String ballMessage = makeBallCountIfExists(gameResult.getGameResult().get(0));
+        String strikeMessage = makeStrikeCountIfExists(gameResult.getGameResult().get(1));
 
         if (ballMessage.isEmpty() && strikeMessage.isEmpty()) {
             printNothing();

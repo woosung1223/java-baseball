@@ -1,10 +1,9 @@
 package baseball.controller;
 
 import baseball.domain.BaseballGame;
+import baseball.domain.GameResultDTO;
 import baseball.view.InputView;
 import baseball.view.OutputView;
-
-import java.util.List;
 
 public class GameController {
     private BaseballGame baseballGame = new BaseballGame(); // TODO: DI 활용
@@ -28,21 +27,12 @@ public class GameController {
     }
 
     private void doOneGame() {
-        List<Integer> gameResult;
+        GameResultDTO gameResult;
         do {
             int userNumber = inputView.readNumber();
             gameResult = baseballGame.getGameResult(userNumber);
             outputView.printResult(gameResult);
-        } while (!isGameOver(gameResult));
-    }
-
-
-    // TODO: DTO 정의되면 위임하기
-    private boolean isGameOver(List<Integer> gameResult) {
-        if (gameResult.get(1) == 3) {
-            return true;
-        }
-        return false;
+        } while (!gameResult.isGameOver());
     }
 
     private boolean userNeedContinue(int userControl) {

@@ -12,15 +12,13 @@ public class BaseballGame {
         RandomNumGenerator randomNumGenerator = new RandomNumGenerator();
         answer = new BaseballNumber(randomNumGenerator.makeDistinctRandomNDigitNumber(GAME_DIGIT));
     }
-
-    // TODO: DTO 를 반환하도록 재구성한다.
-    public List<Integer> getGameResult(int userInput) {
+    
+    public GameResultDTO getGameResult(int userInput) {
         BaseballNumber userNumber = new BaseballNumber(makeIntegerToList(userInput));
         AnswerComparator answerComparator = new AnswerComparator();
 
-        List<Integer> gameResult = answerComparator.getScore(userNumber, answer);
-        // TODO: DTO에 게임 종료 플래그를 삽입한다.
-        return gameResult;
+        List<Integer> userScore = answerComparator.getScore(userNumber, answer);
+        return new GameResultDTO(userScore, isGameOver(userScore));
     }
 
     private List<Integer> makeIntegerToList(int target) {
@@ -31,5 +29,12 @@ public class BaseballGame {
         }
         Collections.reverse(result);
         return result;
+    }
+
+    private boolean isGameOver(List<Integer> score) {
+        if (score.get(1) == 3) {
+            return true;
+        }
+        return false;
     }
 }
