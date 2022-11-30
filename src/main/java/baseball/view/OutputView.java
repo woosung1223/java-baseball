@@ -10,14 +10,15 @@ public class OutputView {
     private final String NOTHING_MESSAGE = "낫싱";
     private final String DELIMITER = " ";
     private final String EMPTY_STRING = "";
-
+    private final int BALL_INDEX = 0;
+    private final int STRIKE_INDEX = 1;
     public void printResult(GameResultDTO gameResult) {
         printResultMessage(gameResult);
     }
 
     private void printResultMessage(GameResultDTO gameResult) {
-        String ballMessage = makeBallCountIfExists(gameResult.getGameResult().get(0));
-        String strikeMessage = makeStrikeCountIfExists(gameResult.getGameResult().get(1));
+        String ballMessage = makeBallCountIfExists(gameResult.getGameResult().get(BALL_INDEX));
+        String strikeMessage = makeStrikeCountIfExists(gameResult.getGameResult().get(STRIKE_INDEX));
 
         if (ballMessage.isEmpty() && strikeMessage.isEmpty()) {
             printNothing();

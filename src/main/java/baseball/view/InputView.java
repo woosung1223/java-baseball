@@ -18,12 +18,11 @@ public class InputView {
         return Integer.parseInt(line);
     }
 
-    public GameControl readControl() {
+    public int readControl() {
         System.out.println(READ_CONTROL_MESSAGE);
         String line = Console.readLine();
         UserControlVerifier userControlVerifier = new UserControlVerifier();
         userControlVerifier.check(line);
-        // TODO: int 자료형이 아닌 객체 타입으로 반환하기. Control 값은 언제나 바뀔 수 있다.
-        return GameControl.of(line);
+        return Integer.parseInt(line);
     }
 }

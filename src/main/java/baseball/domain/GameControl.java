@@ -12,9 +12,9 @@ public enum GameControl {
         this.controlFlag = controlFlag;
     }
 
-    public static GameControl of(String target) {
+    public static GameControl of(int target) {
         return Arrays.stream(values())
-                .filter(value -> value.controlFlag == Integer.parseInt(target))
+                .filter(value -> value.controlFlag == target)
                 .findFirst()
                 .orElseThrow(NullPointerException::new);
     }

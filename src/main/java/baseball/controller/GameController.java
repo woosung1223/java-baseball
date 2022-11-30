@@ -23,7 +23,7 @@ public class GameController {
         do {
             baseballGame.initAnswer();
             doOneGame();
-            userControl = inputView.readControl();
+            userControl = GameControl.of(inputView.readControl());
         } while (userNeedContinue(userControl));
     }
 

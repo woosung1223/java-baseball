@@ -32,9 +32,6 @@ public class BaseballGame {
     }
 
     private boolean isGameOver(List<Integer> score) {
-        if (score.get(1) == 3) {
-            return true;
-        }
-        return false;
+        return score.get(1) == GAME_DIGIT;
     }
 }
