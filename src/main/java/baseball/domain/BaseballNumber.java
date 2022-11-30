@@ -1,6 +1,7 @@
 package baseball.domain;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class BaseballNumber {
     private List<Integer> baseballNumber;
@@ -10,23 +11,18 @@ public class BaseballNumber {
     }
 
     public int countDifferentDigit(BaseballNumber other) {
-        return (int) baseballNumber.stream()
-                .filter(other::contains)
-                .filter(i -> baseballNumber.get(i) != other.getNumberAt(i))
+        System.out.println(other.baseballNumber);
+        return (int) Stream.iterate(0, i -> i + 1)
+                .limit(baseballNumber.size())
+                .filter(i -> other.baseballNumber.contains(baseballNumber.get(i)))
+                .filter(i -> !baseballNumber.get(i).equals(other.baseballNumber.get(i)))
                 .count();
     }
 
     public int countSameDigit(BaseballNumber other) {
-        return (int) baseballNumber.stream()
-                .filter(i -> baseballNumber.get(i) == other.getNumberAt(i))
+        return (int) Stream.iterate(0, i -> i + 1)
+                .limit(baseballNumber.size())
+                .filter(i -> baseballNumber.get(i).equals(other.baseballNumber.get(i)))
                 .count();
-    }
-
-    public int getNumberAt(int index) {
-        return baseballNumber.get(index);
-    }
-
-    public boolean contains(int element) {
-        return baseballNumber.contains(element);
     }
 }
