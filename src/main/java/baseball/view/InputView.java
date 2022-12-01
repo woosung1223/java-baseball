@@ -1,6 +1,5 @@
 package baseball.view;
 
-import baseball.domain.GameControl;
 import baseball.verifier.UserControlVerifier;
 import baseball.verifier.UserNumberVerifier;
 import camp.nextstep.edu.missionutils.Console;

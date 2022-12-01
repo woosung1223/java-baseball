@@ -2,8 +2,6 @@ package baseball.view;
 
 import baseball.domain.GameResultDTO;
 
-import java.util.List;
-
 public class OutputView {
     private final String BALL_MESSAGE = "볼";
     private final String STRIKE_MESSAGE = "스트라이크";
@@ -12,6 +10,7 @@ public class OutputView {
     private final String EMPTY_STRING = "";
     private final int BALL_INDEX = 0;
     private final int STRIKE_INDEX = 1;
+
     public void printResult(GameResultDTO gameResult) {
         printResultMessage(gameResult);
     }
