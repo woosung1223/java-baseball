@@ -7,11 +7,15 @@ import baseball.view.InputView;
 import baseball.view.OutputView;
 
 public class GameController {
-    private BaseballGame baseballGame = new BaseballGame(); // TODO: DI 활용
-    private InputView inputView = new InputView(); // TODO: DI 활용
-    private OutputView outputView = new OutputView(); // TODO: DI 활용
+    private BaseballGame baseballGame;
+    private InputView inputView = new InputView();
+    private OutputView outputView = new OutputView();
 
     private final String GAME_START_MESSAGE = "숫자 야구 게임을 시작합니다.";
+
+    public GameController(BaseballGame baseballGame) {
+        this.baseballGame = baseballGame;
+    }
 
     public void startGame() {
         System.out.println(GAME_START_MESSAGE);
