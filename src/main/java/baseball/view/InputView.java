@@ -18,11 +18,11 @@ public class InputView {
         return Integer.parseInt(line);
     }
 
-    public int readControl() {
+    public String readControl() {
         System.out.println(READ_CONTROL_MESSAGE);
         String line = Console.readLine();
         UserControlVerifier userControlVerifier = new UserControlVerifier();
         userControlVerifier.check(line);
-        return Integer.parseInt(line);
+        return line;
     }
 }

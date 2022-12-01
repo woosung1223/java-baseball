@@ -3,20 +3,20 @@ package baseball.domain;
 import java.util.Arrays;
 
 public enum GameControl {
-    CONTINUE(1),
-    EXIT(2);
+    CONTINUE("1"),
+    EXIT("2");
 
-    private final int controlFlag;
+    private final String controlFlag;
 
-    GameControl(int controlFlag) {
+    GameControl(String controlFlag) {
         this.controlFlag = controlFlag;
     }
 
-    public static GameControl of(int target) {
+    public static GameControl of(String target) {
         return Arrays.stream(values())
-                .filter(value -> value.controlFlag == target)
+                .filter(value -> value.controlFlag.equals(target))
                 .findFirst()
-                .orElseThrow(NullPointerException::new);
+                .orElseThrow(RuntimeException::new);
     }
 
     public boolean isContinue() {
